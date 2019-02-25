@@ -1,5 +1,9 @@
 # Trenderland Lottery
 
+2019 Spring party lottery site
+
+[Demo](https://adc.github.trendmicro.com/pages/skyduck-su/trenderland-lottery/build)
+
 ## Environment
 
 ### Node version
