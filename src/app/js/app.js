@@ -52,15 +52,18 @@
     var imgs = [
       'images/bg0.jpg',
       'images/bg1.jpg',
-      'images/title0.png',
-      'images/title1.png',
-      'images/title2.png',
-      'images/title3.png',
+      'images/character0-1.png',
+      'images/character0.png',
       'images/money0.png',
       'images/money1.png',
       'images/money2.png',
       'images/money3.png',
-      'images/money4.png'
+      'images/money4.png',
+      'images/skyduck.png',
+      'images/title0.png',
+      'images/title1.png',
+      'images/title2.png',
+      'images/title3.png'
     ];
 
     function loadImage(src) {
