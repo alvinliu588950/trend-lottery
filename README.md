@@ -13,7 +13,7 @@
 |backspace|Revert one lottery result|
 
 ## Lottery states
-There are three pages in the Trenderland Lottery App. The view goes to the previous/next state of the current page while hitting corresponding keys, and changes the current page if reaches the fist/final state.
+There are three pages in the Trenderland Lottery App. The view goes to the previous/next state of the current page while hitting corresponding keys, and changes the current page if it reaches its first/final state.
 
 When page is changed, it starts from the first state of the page.
 
