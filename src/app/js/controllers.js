@@ -149,7 +149,7 @@
     _
   ) {
     var PREV_STATE = 'app.intro';
-    var STATES = 2;
+    var STATES = 0;
     var vm = this;
     vm.state = 0;
     vm.results = [[], []];
