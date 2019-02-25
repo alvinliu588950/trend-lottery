@@ -1,0 +1,22 @@
+<div class="app-page app-intro">
+  <!-- <div class="abs bg-block animated fadeInLeft"></div> -->
+  <img class="abs title0" src="images/title0.png">
+  <img class="abs title1" src="images/title1.png">
+  <img class="abs title2" src="images/title2.png">
+  <img class="abs title3" src="images/title3.png">
+
+  <div class="abs intro animated fadeIn" ng-if="vm.state >= 1">
+    <h1>獎項</h1>
+    <div class="intro-awards">
+      <div
+        class="animated flipInX"
+        ng-repeat="count in vm.awards track by $index"
+        ng-class="'ani-delay-' + ($index * 2)"
+      >
+        <img ng-src="images/money{{$index}}.png">
+        <span class="abs">×{{count}}</span>
+      </div>
+    </div>
+    <p>各獎項抽出之後會在三月由公司統一以薪轉戶發放</p>
+  </div>
+</div>

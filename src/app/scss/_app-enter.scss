@@ -1,0 +1,25 @@
+.app-enter {
+  .title0 {
+    top: 70px;
+    left: 200px;
+  }
+  .title1 {
+    top: 230px;
+    right: 200px;
+  }
+  .title2,
+  .title3 {
+    top: 450px;
+    height: 80px;
+  }
+  .title2 {
+    left: 100px;
+  }
+  .title3 {
+    right: 100px;
+  }
+  .sign {
+    bottom: 0;
+    right: 0;
+  }
+}

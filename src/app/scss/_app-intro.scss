@@ -1,0 +1,67 @@
+.app-intro {
+  color: #ffffff;
+
+  .title0 {
+    top: 30px;
+    left: 30px;
+    height: 140px;
+    transform: rotateZ(-15deg);
+  }
+  .title1 {
+    top: 75px;
+    left: 210px;
+    height: 110px;
+    transform: rotateZ(-15deg);
+  }
+  .title2 {
+    top: 35px;
+    right: 40px;
+    height: 65px;
+  }
+  .title3 {
+    top: 105px;
+    right: 20px;
+    height: 65px;
+  }
+
+  .bg-block {
+    top: 100px;
+    bottom: 30px;
+    width: 100%;
+    background: rgba(#999999, .3);
+  }
+
+  .intro {
+    top: 230px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+
+    * {
+      margin: 0;
+    }
+
+    .intro-awards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 100px 0;
+
+      & > div {
+        position: relative;
+        margin: 0 20px;
+
+        img {
+          width: 160px;
+          box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .4);
+          transform: rotateZ(-40deg);
+        }
+
+        span {
+          bottom: -20px;
+          right: 0;
+        }
+      }
+    }
+  }
+}

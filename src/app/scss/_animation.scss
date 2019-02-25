@@ -1,0 +1,18 @@
+@for $i from 1 through 10 {
+  .ani-delay-#{$i} {
+    animation-delay: ($i / 10) + 0s;
+  }
+}
+
+.animated.flipY {
+  backface-visibility: hidden;
+  animation-name: flipY;
+}
+
+@keyframes flipY {
+  from { transform: rotateX(-360deg); }
+  25% { transform: rotateX(-270deg); }
+  50% { transform: rotateX(-180deg); }
+  75% { transform: rotateX(-90deg); }
+  to { transform: rotateX(0deg); }
+}

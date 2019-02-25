@@ -1,0 +1,209 @@
+.app-lottery {
+  button {
+    position: relative;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    outline: 0 !important;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .character {
+    z-index: 1;
+    transform: translateY(100%);
+    transition: all 1s ease;
+
+    &.show {
+      transform: translateY(0);
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    }
+
+    &.character0 {
+      bottom: -120px;
+      right: 80px;
+
+      img {
+        &.award {
+          position: absolute;
+          top: -120px;
+          left: -55px;
+          transform: rotateZ(-7deg);
+          box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, .4);
+          transition: all .2s ease;
+          &.ng-enter { opacity: 0; }
+          &.ng-enter-active { opacity: 1; }
+          &.ng-leave { opacity: 1; }
+          &.ng-leave-active { opacity: 0; }
+        }
+        &.hand {
+          position: absolute;
+          top: -4px;
+          right: 39px;
+        }
+      }
+    }
+
+    &.character1 {
+      bottom: -120px;
+      left: 80px;
+
+      .psid-ball {
+        position: absolute;
+        top: -130px;
+        left: 80px;
+        padding-left: 30px;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        font-size: 165px;
+        font-weight: bold;
+        border-radius: 200px;
+        box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, .4);
+        transition: all .2s ease;
+        &.ng-enter { opacity: 0; }
+        &.ng-enter-active { opacity: 1; }
+        &.ng-leave { opacity: 1; }
+        &.ng-leave-active { opacity: 0; }
+      }
+
+      img {
+        transform: rotateY(180deg);
+
+        &.hand {
+          position: absolute;
+          top: -4px;
+          left: 39px;
+        }
+      }
+    }
+  }
+
+  .results {
+    display: flex;
+    justify-content: center;
+    top: 230px;
+    width: 100%;
+    font-size: 35px;
+  }
+
+  .table {
+    margin: 0 40px;
+    width: 400px;
+
+    .row, .col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .row {
+      padding: 10px 0;
+      transition: all .2s ease;
+
+      &.ng-enter { opacity: 0; }
+      &.ng-enter-active { opacity: 1; }
+      &.ng-leave { opacity: 1; }
+      &.ng-leave-active { opacity: 0; }
+
+      &:first-child {
+        border-bottom: 1px solid #ffffff;
+      }
+      &:nth-child(odd):not(:first-child) {
+        background: rgba(#ffffff, .1);
+      }
+      &:nth-child(even) {
+        background: rgba(#000000, .1);
+      }
+    }
+
+    .col {
+      &:first-child {
+        width: 40%;
+      }
+      &:last-child {
+        width: 60%;
+      }
+
+      img {
+        height: 60px;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .4);
+      }
+    }
+  }
+
+  .psid-ball {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    text-shadow: none;
+    color: #d03e83;
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .4);
+    transition: all .2s ease;
+  }
+
+  .psid-input {
+    z-index: 10;
+    bottom: -25px;
+    left: 10px;
+
+    button {
+      margin: 0 4px;
+      height: 50px;
+      width: 50px;
+      padding: 0;
+      font-size: 35px;
+      transition: all .2s ease;
+
+      &:hover {
+        .psid-ball {
+          transform: translateY(-30px) rotateZ(15deg);
+        }
+      }
+
+      &.ng-enter { opacity: 0; }
+      &.ng-enter-active { opacity: 1; }
+      &.ng-leave { opacity: 1; }
+      &.ng-leave-active { opacity: 0; }
+    }
+  }
+
+  .award-input {
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+
+    button {
+      width: 70px;
+      height: 40px;
+
+      &:hover {
+        z-index: 1;
+
+        img {
+          transform: translateY(-40px) rotateZ(65deg);
+        }
+      }
+
+      img {
+        position: absolute;
+        top: 20;
+        left: 0;
+        width: 80px;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .4);
+        transform: rotateZ(65deg);
+        transition: all .2s ease;
+
+        &.ng-enter { opacity: 0; }
+        &.ng-enter-active { opacity: 1; }
+        &.ng-leave { opacity: 1; }
+        &.ng-leave-active { opacity: 0; }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "normalize";
+@import "animation";
+@import "app-enter";
+@import "app-intro";
+@import "app-lottery";
+
+* {
+  font-family: 微軟正黑體;
+  text-shadow: 3px 3px 4px rgba(#000000, .5);
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.abs {
+  position: absolute;
+}
+
+.app {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all ease-in-out .4s;
+
+  &.bg0 {
+    background-image: url(../images/bg0.jpg);
+  }
+
+  &.bg1 {
+    background-image: url(../images/bg1.jpg);
+  }
+}
+
+.app-view {
+  flex: none;
+  display: block;
+  width: 1024px;
+  height: 768px;
+
+  ui-view {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all .5s ease-in-out;
+
+    &.ng-enter {
+      opacity: 0;
+    }
+
+    &.ng-enter-active {
+      opacity: 1;
+    }
+
+    &.ng-leave {
+      opacity: 1;
+    }
+
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
+.app-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
