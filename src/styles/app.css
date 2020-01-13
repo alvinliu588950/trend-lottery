@@ -521,6 +521,48 @@ textarea {
       position: absolute;
       top: -4px;
       right: 39px; }
+  .app-lottery .character.character2 {
+    bottom: -120px;
+    right: 80px; }
+    .app-lottery .character.character2 img.award {
+      position: absolute;
+      top: -120px;
+      left: -55px;
+      transform: rotateZ(-7deg);
+      box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.4);
+      transition: all .2s ease; }
+      .app-lottery .character.character2 img.award.ng-enter {
+        opacity: 0; }
+      .app-lottery .character.character2 img.award.ng-enter-active {
+        opacity: 1; }
+      .app-lottery .character.character2 img.award.ng-leave {
+        opacity: 1; }
+      .app-lottery .character.character2 img.award.ng-leave-active {
+        opacity: 0; }
+    .app-lottery .character.character2 img.hand {
+      position: absolute;
+      top: -4px;
+      right: 39px; }
+    .app-lottery .character.character2 .psid-ball {
+      position: absolute;
+      top: -130px;
+      left: 0px;
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      font-size: 130px;
+      font-weight: bold;
+      border-radius: 200px;
+      box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.4);
+      transition: all .2s ease; }
+      .app-lottery .character.character2 .psid-ball.ng-enter {
+        opacity: 0; }
+      .app-lottery .character.character2 .psid-ball.ng-enter-active {
+        opacity: 1; }
+      .app-lottery .character.character2 .psid-ball.ng-leave {
+        opacity: 1; }
+      .app-lottery .character.character2 .psid-ball.ng-leave-active {
+        opacity: 0; }
   .app-lottery .character.character1 {
     bottom: -120px;
     left: 80px; }
@@ -528,7 +570,6 @@ textarea {
       position: absolute;
       top: -130px;
       left: 80px;
-      padding-left: 30px;
       width: 200px;
       height: 200px;
       line-height: 200px;
@@ -561,7 +602,7 @@ textarea {
 
 .app-lottery .table {
   margin: 0 40px;
-  width: 400px; }
+  width: 1000px; }
   .app-lottery .table .row, .app-lottery .table .col {
     display: flex;
     align-items: center;
@@ -584,9 +625,11 @@ textarea {
     .app-lottery .table .row:nth-child(even) {
       background: rgba(0, 0, 0, 0.1); }
   .app-lottery .table .col:first-child {
-    width: 40%; }
+    width: 20%; }
+  .app-lottery .table .col:nth-child(2) {
+    width: 30%; }
   .app-lottery .table .col:last-child {
-    width: 60%; }
+    width: 50%; }
   .app-lottery .table .col img {
     height: 60px;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.4); }
@@ -601,7 +644,8 @@ textarea {
   background: #ffffff;
   border-radius: 50px;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.4);
-  transition: all .2s ease; }
+  transition: all .2s ease;
+  padding-top: 5px; }
 
 .app-lottery .psid-input {
   z-index: 10;
@@ -623,6 +667,28 @@ textarea {
     .app-lottery .psid-input button.ng-leave {
       opacity: 1; }
     .app-lottery .psid-input button.ng-leave-active {
+      opacity: 0; }
+
+.app-lottery .ball-input {
+  z-index: 10;
+  bottom: -25px;
+  left: 700px; }
+  .app-lottery .ball-input button {
+    margin: 0 4px;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    font-size: 35px;
+    transition: all .2s ease; }
+    .app-lottery .ball-input button:hover .psid-ball {
+      transform: translateY(-30px) rotateZ(15deg); }
+    .app-lottery .ball-input button.ng-enter {
+      opacity: 0; }
+    .app-lottery .ball-input button.ng-enter-active {
+      opacity: 1; }
+    .app-lottery .ball-input button.ng-leave {
+      opacity: 1; }
+    .app-lottery .ball-input button.ng-leave-active {
       opacity: 0; }
 
 .app-lottery .award-input {

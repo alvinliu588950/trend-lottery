@@ -46,6 +46,48 @@
       }
     }
 
+    &.character2 {
+      bottom: -120px;
+      right: 80px;
+
+      img {
+        &.award {
+          position: absolute;
+          top: -120px;
+          left: -55px;
+          transform: rotateZ(-7deg);
+          box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, .4);
+          transition: all .2s ease;
+          &.ng-enter { opacity: 0; }
+          &.ng-enter-active { opacity: 1; }
+          &.ng-leave { opacity: 1; }
+          &.ng-leave-active { opacity: 0; }
+        }
+        &.hand {
+          position: absolute;
+          top: -4px;
+          right: 39px;
+        }
+      }
+      .psid-ball {
+        position: absolute;
+        top: -130px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        font-size: 130px;
+        font-weight: bold;
+        border-radius: 200px;
+        box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, .4);
+        transition: all .2s ease;
+        &.ng-enter { opacity: 0; }
+        &.ng-enter-active { opacity: 1; }
+        &.ng-leave { opacity: 1; }
+        &.ng-leave-active { opacity: 0; }
+      }
+    }
+
     &.character1 {
       bottom: -120px;
       left: 80px;
@@ -54,7 +96,6 @@
         position: absolute;
         top: -130px;
         left: 80px;
-        padding-left: 30px;
         width: 200px;
         height: 200px;
         line-height: 200px;
@@ -91,7 +132,7 @@
 
   .table {
     margin: 0 40px;
-    width: 400px;
+    width: 1000px;
 
     .row, .col {
       display: flex;
@@ -121,10 +162,13 @@
 
     .col {
       &:first-child {
-        width: 40%;
+        width: 20%;
+      }
+      &:nth-child(2) {
+        width: 30%;
       }
       &:last-child {
-        width: 60%;
+        width: 50%;
       }
 
       img {
@@ -145,12 +189,38 @@
     border-radius: 50px;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .4);
     transition: all .2s ease;
+    padding-top: 5px;
   }
 
   .psid-input {
     z-index: 10;
     bottom: -25px;
     left: 10px;
+
+    button {
+      margin: 0 4px;
+      height: 50px;
+      width: 50px;
+      padding: 0;
+      font-size: 35px;
+      transition: all .2s ease;
+
+      &:hover {
+        .psid-ball {
+          transform: translateY(-30px) rotateZ(15deg);
+        }
+      }
+
+      &.ng-enter { opacity: 0; }
+      &.ng-enter-active { opacity: 1; }
+      &.ng-leave { opacity: 1; }
+      &.ng-leave-active { opacity: 0; }
+    }
+  }
+  .ball-input {
+    z-index: 10;
+    bottom: -25px;  
+    left: 700px;  
 
     button {
       margin: 0 4px;

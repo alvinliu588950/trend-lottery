@@ -123,7 +123,7 @@
     var STATES = 1;
     var vm = this;
     vm.state = 0;
-    vm.awards = [4, 2, 1, 2, 1];
+    vm.awards = [7, 2, 1];
     vm.init = init;
 
     vm.init();
@@ -152,38 +152,65 @@
     var STATES = 0;
     var vm = this;
     vm.state = 0;
-    vm.results = [[], []];
+    vm.results = [{
+      0: { psid: 0, balls: 1, award: null},
+      1: { psid: 1, balls: 1, award: null},
+      2: { psid: 2, balls: 1, award: null},
+      3: { psid: 3, balls: 1, award: null},
+      4: { psid: 4, balls: 1, award: null},
+    }, {
+      5: { psid: 5, balls: 1, award: null},
+      6: { psid: 6, balls: 1, award: null},
+      7: { psid: 7, balls: 1, award: null},
+      8: { psid: 8, balls: 1, award: null},
+      9: { psid: 9, balls: 1, award: null},
+    }];
     vm.psids = _.range(10).map(function(i) {
       return {
         id: i,
         remain: 1
       };
     });
-    vm.awards = [
-      { money: 1888, remain: 4 },
-      { money: 2088, remain: 2 },
-      { money: 2288, remain: 1 },
-      { money: 2688, remain: 2 },
-      { money: 3088, remain: 1 },
-    ];
-    vm.awardMap = {
-      1888: 0,
-      2088: 1,
-      2288: 2,
-      2688: 3,
-      3088: 4,
+
+    // vm.awards = [
+    //   { money: 2288, remain: 7 },
+    //   { money: 2688, remain: 2 },
+    //   { money: 3088, remain: 1 },
+    // ];
+  
+    vm.awards = {
+      1: {
+        img: 2,
+        money: 2288,
+        remain: 7
+      },
+      2: {
+        img: 3,
+        money: 2688,
+        remain: 2
+      },
+      3: {
+        img: 4,
+        money: 3088,
+        remain: 1
+      },
     };
     vm.current = {
       money: null,
       award: null,
+      ball: false,
     };
-    vm.characters = [false, false];
+    vm.characters = [false, false, false];
     vm.flipIndex = -1;
     vm.init = init;
+    vm.getRid = getRid;
     vm.onAwardClick = onAwardClick;
     vm.onPsidClick = onPsidClick;
     vm.onResult = onResult;
     vm.onBack = onBack;
+    vm.onAddBall = onAddBall;
+    vm.onRemoveBall = onRemoveBall;
+    vm.onUndoResult = onUndoResult;
 
     vm.init();
 
@@ -199,14 +226,41 @@
       $scope.$on('back', vm.onBack);
     }
 
-    function onAwardClick(award) {
+    function onAwardClick(awardKey) {
       if (vm.current.psid && vm.current.award) { return; }
-      vm.current.award = award;
+      vm.current.award = awardKey;
       vm.characters[0] = true;
       if (vm.current.psid && vm.current.award) {
         vm.onResult();
         // $timeout(vm.onResult, 2000);
       }
+    }
+
+    function onAddBall(psid) {
+      var rid = vm.getRid(psid);
+      vm.results[rid][psid].balls += 1;
+      vm.current.psid = vm.psids[psid];
+      vm.current.ball = true;
+      vm.characters[1] = true;
+      vm.characters[2] = true;
+
+      $timeout(function() {
+        vm.current.psid = null;
+        vm.current.ball = false;
+        vm.characters[1] = false;
+        vm.characters[2] = false;
+      }, 2000);
+      return;
+    }
+
+    function onRemoveBall(psid) {
+      var rid = vm.getRid(psid);
+      vm.results[rid][psid].balls -= 1;
+      return;
+    }
+
+    function getRid(psid) {
+      return psid > 4 ? 1 : 0;
     }
 
     function onPsidClick(psid) {
@@ -220,30 +274,36 @@
     }
 
     function onResult() {
-      var rid = vm.results[0].length >= 5 ? 1 : 0;
-      vm.results[rid].push({
-        id: vm.current.psid.id,
-        money: vm.current.award.money,
-      });
+      var rid = getRid(vm.current.psid.id);
+      vm.results[rid][vm.current.psid.id].award = vm.current.award;
 
       $timeout(function() {
         vm.current.psid.remain -= 1;
-        vm.current.award.remain -= 1;
+        vm.awards[vm.current.award].remain -= 1;
         vm.current.psid = null;
         vm.current.award = null;
         vm.characters[0] = false;
         vm.characters[1] = false;
-
-        if (vm.results[0].length === 5 && vm.results[1].length === 5) {
-          var sorted = _.sortBy(vm.results[0].concat(vm.results[1]), 'id');
-          sorted.forEach(function(result, i) {
-            $timeout(function() {
-              vm.results[i >= 5 ? 1 : 0][i % 5] = result;
-              vm.flipIndex = i;
-            }, 400 * i);
+        if (vm.awards[2].remain <= 0 && vm.awards[3].remain <= 0) {
+          vm.results.forEach(result => {
+            Object.keys(result).forEach((key) => {
+              console.log(result[key])
+              if (result[key].award === null) {
+                result[key].award = 1;
+                vm.awards[1].remain -= 1;
+                vm.psids[key].remain -= 1;
+              }
+            });
           });
         }
       }, 2000);
+    }
+
+    function onUndoResult(psid) {
+      var rid = getRid(psid);
+      vm.awards[vm.results[rid][psid].award].remain += 1;
+      vm.psids[psid].remain += 1;
+      vm.results[rid][psid].award = null;
     }
 
     function onBack() {
