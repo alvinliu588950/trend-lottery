@@ -2,7 +2,7 @@
 
 2019 Spring party lottery site
 
-[Demo](https://adc.github.trendmicro.com/pages/skyduck-su/trenderland-lottery/build)
+[Demo](https://adc.github.trendmicro.com/pages/alvin-liu/trenderland-lottery/build/#!/enter)
 
 ## Keyboard control
 |Key|Action|
