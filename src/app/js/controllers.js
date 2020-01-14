@@ -285,9 +285,8 @@
         vm.characters[0] = false;
         vm.characters[1] = false;
         if (vm.awards[2].remain <= 0 && vm.awards[3].remain <= 0) {
-          vm.results.forEach(result => {
-            Object.keys(result).forEach((key) => {
-              console.log(result[key])
+          vm.results.forEach(function(result) {
+            Object.keys(result).forEach(function(key) {
               if (result[key].award === null) {
                 result[key].award = 1;
                 vm.awards[1].remain -= 1;

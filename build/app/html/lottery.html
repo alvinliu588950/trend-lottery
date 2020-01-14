@@ -7,59 +7,58 @@
 
   <div class="abs character character0" ng-class="{ show: vm.characters[0] }">
     <img src="images/character0.png">
-    <img class="award" ng-src="images/money{{vm.awardMap[vm.current.award.money]}}.png" ng-if="vm.current.award">
+    <img class="award" ng-src="images/money{{vm.awards[vm.current.award].img}}.png" ng-if="vm.current.award">
     <img class="hand" src="images/character0-1.png" ng-if="vm.current.award">
   </div>
 
   <div class="abs character character1" ng-class="{ show: vm.characters[1] }">
-      <img src="images/character0.png">
-      <span class="psid-ball" ng-if="vm.current.psid">{{vm.current.psid.id}}</span>
-      <img class="hand" src="images/character0-1.png" ng-if="vm.current.psid">
-    </div>
+    <img src="images/character0.png">
+    <span class="psid-ball" ng-if="vm.current.psid">{{vm.current.psid.id}}</span>
+    <img class="hand" src="images/character0-1.png" ng-if="vm.current.psid">
+  </div>
+
+  <div class="abs character character2" ng-class="{ show: vm.characters[2] }">
+    <img src="images/character0.png">
+    <span class="psid-ball" ng-if="vm.current.ball">+1</span>
+    <img class="hand" src="images/character0-1.png" ng-if="vm.current.ball">
+  </div>
 
   <div class="abs results animated fadeIn" ng-if="vm.state >= 0">
     <div class="table" ng-repeat="result in vm.results track by $index">
       <div class="row">
         <div class="col"><strong>PSID</strong></div>
+        <div class="col"><strong>球數</strong></div>
         <div class="col"><strong>獎金</strong></div>
       </div>
-      <div
-        class="row animated"
-        ng-repeat="row in result track by $index"
-        ng-class="{ 'flipY': vm.flipIndex >= ($parent.$index) * 5 + $index }"
-      >
+      <div class="row animated" ng-repeat="(psid, state) in result track by $index"
+        ng-class="{ 'flipY': vm.flipIndex >= ($parent.$index) * 5 + $index }">
         <div class="col">
-          <span class="psid-ball">{{row.id}}</span>
+          <span class="psid-ball" ng-click="vm.onAddBall(psid)">{{psid}}</span>
         </div>
         <div class="col">
-          <img ng-src="images/money{{vm.awardMap[row.money]}}.png">
+          <span class="ball-counter" ng-click="vm.onRemoveBall(psid)">
+            {{state.balls}}
+          </span>
+        </div>
+        <div class="col">
+          <img ng-if="state.award" ng-src="images/money{{vm.awards[state.award].img}}.png" ng-click="vm.onUndoResult(psid)">
         </div>
       </div>
     </div>
   </div>
 
   <div class="abs psid-input animated fadeInUp" ng-if="vm.state >= 0">
-    <button
-      ng-repeat="psid in vm.psids track by psid.id"
-      ng-click="vm.onPsidClick(psid)"
-      ng-disabled="psid.remain < 1"
-      ng-if="psid.remain"
-    >
+    <button ng-repeat="psid in vm.psids track by psid.id" ng-click="vm.onPsidClick(psid)" ng-disabled="psid.remain < 1"
+      ng-if="psid.remain">
       <span class="psid-ball">{{psid.id}}</span>
     </button>
   </div>
 
   <div class="abs award-input animated fadeInUp" ng-if="vm.state >= 0">
-    <button
-      ng-repeat="award in vm.awards track by award.money"
-      ng-click="vm.onAwardClick(award)"
-      ng-disabled="award.remain < 1"
-    >
-      <img
-        ng-repeat="i in _.range(award.remain)"
-        ng-src="images/money{{$parent.$index}}.png"
-        ng-style="{ left: $index * 5 + 'px' }"
-      >
+    <button ng-repeat="(key, award) in vm.awards track by $index" ng-click="vm.onAwardClick(key)"
+      ng-disabled="award.remain < 1">
+      <img ng-repeat="i in _.range(award.remain)" ng-src="images/money{{$parent.$index}}.png"
+        ng-style="{ left: $index * 5 + 'px' }">
     </button>
   </div>
 </div>
