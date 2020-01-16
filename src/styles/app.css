@@ -742,9 +742,9 @@ body {
   background-repeat: no-repeat;
   transition: all ease-in-out .4s; }
   .app.bg0 {
-    background-image: url(../images/bg0.jpg); }
+    background-image: url(../images/bg0.png); }
   .app.bg1 {
-    background-image: url(../images/bg1.jpg); }
+    background-image: url(../images/bg1.png); }
 
 .app-view {
   flex: none;

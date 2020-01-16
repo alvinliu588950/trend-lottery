@@ -50,8 +50,8 @@
   /* @ngInject */
   function imageResolver($q) {
     var imgs = [
-      'images/bg0.jpg',
-      'images/bg1.jpg',
+      'images/bg0.png',
+      'images/bg1.png',
       'images/character0-1.png',
       'images/character0.png',
       'images/money0.png',
