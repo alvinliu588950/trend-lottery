@@ -255,7 +255,9 @@
 
     function onRemoveBall(psid) {
       var rid = vm.getRid(psid);
-      vm.results[rid][psid].balls -= 1;
+      if (vm.results[rid][psid].balls > 1) {
+        vm.results[rid][psid].balls -= 1;
+      }
       return;
     }
 
