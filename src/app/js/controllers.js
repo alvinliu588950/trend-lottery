@@ -172,26 +172,20 @@
       };
     });
 
-    // vm.awards = [
-    //   { money: 2288, remain: 7 },
-    //   { money: 2688, remain: 2 },
-    //   { money: 3088, remain: 1 },
-    // ];
-  
     vm.awards = {
       1: {
-        img: 2,
-        money: 2288,
+        img: 0,
+        money: 2000,
         remain: 7
       },
       2: {
-        img: 3,
-        money: 2688,
+        img: 1,
+        money: 3000,
         remain: 2
       },
       3: {
-        img: 4,
-        money: 3088,
+        img: 2,
+        money: 5000,
         remain: 1
       },
     };

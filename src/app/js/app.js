@@ -57,8 +57,6 @@
       'images/money0.png',
       'images/money1.png',
       'images/money2.png',
-      'images/money3.png',
-      'images/money4.png',
       'images/skyduck.png',
       'images/title0.png',
       'images/title1.png',
