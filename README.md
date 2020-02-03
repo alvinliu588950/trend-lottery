@@ -2,7 +2,7 @@
 
 2020 Spring party lottery site
 
-[Demo](https://alvinliu588950.github.io/trend-lottery/build/#!/enter)
+[Demo](https://alvinliu588950.github.io/trend-lottery/build/index.html#!/enter)
 
 ## Keyboard control
 |Key|Action|
