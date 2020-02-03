@@ -1,8 +1,8 @@
 # Trenderland Lottery
 
-2019 Spring party lottery site
+2020 Spring party lottery site
 
-[Demo](https://adc.github.trendmicro.com/pages/alvin-liu/trenderland-lottery/build/#!/enter)
+[Demo](https://alvinliu588950.github.io/trend-lottery/build/#!/enter)
 
 ## Keyboard control
 |Key|Action|
@@ -10,7 +10,6 @@
 |f|Toggle fullscreen|
 |left arrow|Previous state|
 |right arrow, space|Next state|
-|backspace|Revert one lottery result|
 
 ## Lottery states
 There are three pages in the Trenderland Lottery App. The view goes to the previous/next state of the current page while hitting corresponding keys, and changes the current page if it reaches its first/final state.
